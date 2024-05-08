@@ -20,7 +20,7 @@ const CommandInputSearch = ({
     setSelectedSuggestion("");
     const val = e.target.value;
     const filteredSearch = lists
-      .filter((item) => item.keyword.toLowerCase().includes(val.toLowerCase()))
+      ?.filter((item) => item.keyword.toLowerCase().includes(val.toLowerCase()))
       .slice(0, 10);
     setCommandItemLists(filteredSearch);
     setSeek(e.target.value);
