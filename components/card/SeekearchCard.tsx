@@ -25,7 +25,7 @@ const SeekearchCard = () => {
             />
           </div>
           <CardDescription className="italic text-center mt-[10px]">
-            "Seek and Search Products"
+            &quot;Seek and Search Products&quot;
           </CardDescription>
         </CardContent>
       </Card>
