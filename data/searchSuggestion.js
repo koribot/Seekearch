@@ -49,7 +49,7 @@ export const searchSuggestions = [
   { keyword: "eco-friendly fashion" },
   { keyword: "plus-size clothing" },
   { keyword: "maternity wear" },
-  { keyword: `children's clothing` },
+  { keyword: "childrens clothing" },
   { keyword: "teen fashion" },
   { keyword: "petite sizes" },
   { keyword: "designer brands" },
