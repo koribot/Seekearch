@@ -17,13 +17,19 @@ const WebsiteContentCard = ({
   additionalSearchUrlParams = "",
 }: WebsiteContentCardProps) => {
   const [html, setHtml] = useState<string>("");
+  const iframeRef = useRef(null);
+
   const fetchPlatformHTML = async () => {
-    const userAgent = navigator.userAgent;
-    const resp = await axios.get(
-      `/api/search?q=${searchUrlStructure}${searhKeyword}${additionalSearchUrlParams}`
+    const link = encodeURIComponent(
+      searchUrlStructure + searhKeyword + additionalSearchUrlParams
     );
-    const r = await resp.data;
-    setHtml(r);
+    try {
+      const resp = await axios.get(`/api/search?q=${link}`);
+      const r = await resp.data;
+      setHtml(r);
+    } catch (err) {
+      console.log(err);
+    }
   };
   useLayoutEffect(() => {
     fetchPlatformHTML();
@@ -36,8 +42,13 @@ const WebsiteContentCard = ({
       >
         <p className="italic text-center font-bold">{platform}</p>
       </div>
-      <div className="border-2 border-[#42423E] h-[400px] rounded-md scrollbar">
-        <iframe srcDoc={html} className="h-full w-full scrollbar" />
+      <div className="border-2 border-[#42423E] h-[700px] rounded-md scrollbar">
+        <iframe
+          ref={iframeRef}
+          srcDoc={html}
+          rel="noreferrer"
+          className="h-full w-full scrollbar "
+        />
       </div>
     </div>
   );
