@@ -4,7 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import ContextProvider from "@/components/provider/context/ContextProvider";
 import SeekearchCard from "@/components/card/SeekearchCard";
-
+import { Analytics } from "@vercel/analytics/react"
 // const inter = Inter({ subsets: ["latin"] });
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -35,6 +35,7 @@ export default function RootLayout({
           </div>
           {children}
         </ContextProvider>
+        <Analytics/>
       </body>
     </html>
   );
