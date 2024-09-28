@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-
+import ContextProvider from "@/components/provider/context/ContextProvider";
+import SeekearchCard from "@/components/card/SeekearchCard";
+import { Analytics } from "@vercel/analytics/react"
 // const inter = Inter({ subsets: ["latin"] });
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -23,11 +25,17 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased scrollbar",
           fontSans.variable
         )}
       >
-        {children}
+        <ContextProvider>
+          <div className="flex justify-center">
+            <SeekearchCard />
+          </div>
+          {children}
+        </ContextProvider>
+        <Analytics/>
       </body>
     </html>
   );

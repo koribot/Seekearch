@@ -13,7 +13,7 @@ import { searchSuggestions } from "./../../data/searchSuggestion";
 const SeekearchCard = () => {
   return (
     <>
-      <Card className="w-[350px] mt-[100px]">
+      <Card className="w-[360px] mt-[100px]">
         <CardHeader className="text-center">
           <CardTitle>Seekearch</CardTitle>
         </CardHeader>
@@ -25,7 +25,7 @@ const SeekearchCard = () => {
             />
           </div>
           <CardDescription className="italic text-center mt-[10px]">
-            &quot;Seek and Search Products&quot;
+            &quot;Seek and Search accross your favorite websites&quot;
           </CardDescription>
         </CardContent>
       </Card>
